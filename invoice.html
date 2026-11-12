@@ -100,8 +100,11 @@
   <p><strong>Grand total: <span id="grandTotal">0.00</span></strong></p>
 
     <button type="button" id="newInvoiceBtn">New invoice</button>
+    <button type="button" id="saveInvoiceBtn">Save invoice</button>
     <button type="button" id="togglePreviewBtn">Hide invoice preview</button>
     <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    <h2>Saved invoices</h2>
+  <div id="historyList"></div>
   <section id="invoice">
     
     <h2>INVOICE PREVIEW</h2>
@@ -151,5 +154,7 @@
   <script src="logo.js"></script>
   <script src="words.js"></script>
   <script src="qr.js"></script>
+    <script src="autonumber.js"></script>
+    <script src="history.js"></script>
 </body>
 </html>
