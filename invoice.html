@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penna: Invoice Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="penna-logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+  
+    <header class="brand">
+    <img src="penna-logo.png" alt="Penna logo" class="brand-logo">
+    <h1>Penna</h1>
+    </header>
+  <h2>MY BUSINESS </h2>
+ <label for="bizName">Business name</label>
+  <input id="bizName" type="text" placeholder="e.g. Ade Designs">
+
+  <label for="bizEmail">Email</label>
+  <input id="bizEmail" type="email" placeholder="e.g. hello@adedesigns.com">
+
+  <label for="bizPhone">Phone</label>
+  <input id="bizPhone" type="tel" placeholder="e.g. +234 800 000 0000">
+
+  <label for="bizAddress">Address</label>
+  <input id="bizAddress" type="text" placeholder="Street, city, country">
+    <label for="logoInput">Business logo</label>
+  <input id="logoInput" type="file" accept="image/*">
+  <button type="button" id="removeLogo">Remove logo</button>
+
+    <h2>CLIENT</h2>
+
+  <label for="clientName">Client name</label>
+  <input id="clientName" type="text" placeholder="e.g. Tola Stores">
+
+  <label for="clientEmail">Client email</label>
+  <input id="clientEmail" type="email" placeholder="e.g. tola@example.com">
+
+  <label for="clientAddress">Client address</label>
+  <input id="clientAddress" type="text" placeholder="Street, city, country">
+
+  <h2>Invoice details</h2>
+
+  <label for="invoiceNumber">Invoice number</label>
+  <input id="invoiceNumber" type="text" placeholder="e.g. INV-001">
+
+  <label for="invoiceDate">Invoice date</label>
+  <input id="invoiceDate" type="date">
+
+  <label for="dueDate">Due date</label>
+  <input id="dueDate" type="date">
+    <label for="status">Payment status</label>
+  <select id="status">
+    <option value="unpaid">Unpaid</option>
+    <option value="paid">Paid</option>
+  </select>
+
+    <h2>Payment details</h2>
+
+  <label for="bankName">Bank name</label>
+  <input id="bankName" type="text" placeholder="Your bank">
+
+  <label for="accountName">Account name</label>
+  <input id="accountName" type="text" placeholder="Name on the account">
+
+  <label for="accountNumber">Account number</label>
+  <input id="accountNumber" type="text" inputmode="numeric" placeholder="Account number">
+    <label for="payLink">Payment link (optional)</label>
+  <input id="payLink" type="url" placeholder="https://...">
+  
+   <h2>Items</h2>
+
+  <table id="itemsTable">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" class="itemDesc" placeholder="e.g. Logo design"></td>
+        <td><input type="number" class="itemQty" value="0" min="0"></td>
+        <td><input type="number" class="itemPrice" placeholder="0.00" min="0"></td>
+      </tr>
+    </tbody>
+  </table>
+    <button id="addItemBtn" type="button">+ Add item</button>
+    <h2>Totals</h2>
+  <label for="taxRate">VAT rate (%)</label>
+  <input id="taxRate" type="number" value="7.5" min="0">
+
+
+  <p>Subtotal: <span id="subtotal">0.00</span></p>
+  <p>VAT: <span id="taxAmount">0.00</span></p>
+  <p><strong>Grand total: <span id="grandTotal">0.00</span></strong></p>
+
+    <button type="button" id="newInvoiceBtn">New invoice</button>
+    <button type="button" id="togglePreviewBtn">Hide invoice preview</button>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  <section id="invoice">
+    
+    <h2>INVOICE PREVIEW</h2>
+        <div id="stamp" class="stamp unpaid">UNPAID</div>
+        <img id="outLogo" alt="Business logo" style="display:none">
+    <h3 id="outBizName">Your business name</h3>
+    <p id="outBizEmail"></p>
+    <p id="outBizPhone"></p>
+    <p id="outBizAddress"></p>
+    <p><strong>Bill to:</strong> <span id="outClientName">Client name</span></p>
+    <p>Invoice #: <span id="outInvoiceNumber"></span></p>
+    <p>Date: <span id="outInvoiceDate"></span></p>
+    <p>Due: <span id="outDueDate"></span></p>
+    
+  
+          <table id= "outItems">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p>Subtotal: <span id="outSubtotal">0.00</span></p>
+    <p>VAT: <span id="outTax">0.00</span></p>
+    <p><strong>Grand Total: <span id="outGrandTotal">0.00</span></strong></p>
+        <p id="outWords"></p>
+        <h3>Payment Details</h3>
+    <p>Bank: <span id="outBankName"></span></p>
+    <p>Account Name: <span id="outAccountName"></span></p>
+    <p>Account Number: <span id="outAccountNumber"></span></p>
+    <div id="qrBox" style="display:none">
+      <p>Scan to pay:</p>
+      <div id="qrCode"></div>
+    </div>
+  </section>
+
+
+    
+  </section> 
+    <script src="script.js"></script>
+    <script src="stamp.js"></script>
+  <script src="logo.js"></script>
+  <script src="words.js"></script>
+  <script src="qr.js"></script>
+</body>
+</html>

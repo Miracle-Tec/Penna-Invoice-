@@ -1,0 +1,302 @@
+* {
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+}
+
+input, select {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  margin-top: 4px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th, td {
+  text-align: left;
+  padding: 4px;
+}
+
+td input {
+  margin-top: 0;
+}
+@media print {
+  body > *:not(#invoice) {
+    display: none !important;
+  }
+
+  #invoice h2 {
+    display: none;
+  }
+
+  #invoice th,
+  #invoice td {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+select {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+#invoice {
+  position: relative;
+}
+.stamp {
+  position: static;
+  float: right;
+  transform: rotate(-8deg);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 2px 14px;
+  border: 4px solid;
+  border-radius: 8px;
+  opacity: 0.85;
+  margin: 4px 4px 8px 12px;
+}
+
+
+#outItems {
+  clear: both;
+}
+
+#invoice.is-hidden {
+  display: none;
+}
+
+@media print {
+  #invoice.is-hidden {
+    display: block !important;
+  }
+}
+
+.stamp.paid {
+  color: #1a8f3c;
+}
+
+.stamp.unpaid {
+  color: #c62828;
+}
+#outLogo {
+  max-height: 80px;
+  max-width: 200px;
+  margin-bottom: 8px;
+}
+#outWords {
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 12px;
+  font-size: 25px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  height: 56px;
+  width: auto;
+}
+#itemsTable{
+  color:cadetblue;
+
+}
+h1 {
+  border: 20px;
+  border-radius:10px;
+  border-color: navy;
+}
+
+
+
+@page {
+  margin: 14mm;
+}
+
+#invoice {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1c2333;
+  background: #ffffff;
+  line-height: 1.5;
+  padding: 24px;
+  border-top: 8px solid #0b1f5c;
+}
+
+#invoice p {
+  margin: 2px 0;
+}
+
+
+#outBizName {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #0b1f5c;
+  display: inline-block;
+  margin: 8px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #e8a91e;
+}
+#outItems {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+#outItems th {
+  background: #0b1f5c;
+  color: #ffffff;
+  padding: 8px;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+#outItems td {
+  padding: 8px;
+  border-bottom: 1px solid #e3e7f0;
+}
+
+#outItems th:nth-child(n+2),
+#outItems td:nth-child(n+2) {
+  text-align: right;
+}
+
+#outItems tbody tr:nth-child(even) {
+  background: #f5f7fb;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+#invoice p:has(#outSubtotal),
+#invoice p:has(#outTax),
+#invoice p:has(#outGrandTotal) {
+  text-align: right;
+}
+
+#invoice p:has(#outGrandTotal) {
+  font-size: 1.25rem;
+  color: #0b1f5c;
+  margin-top: 6px;
+}
+
+#outWords {
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 14px;
+  padding: 10px 12px;
+  background: #f5f7fb;
+  border-left: 4px solid #e8a91e;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+#invoice h3:not(#outBizName) {
+  color: #0b1f5c;
+  border-bottom: 2px solid #e8a91e;
+  padding-bottom: 4px;
+  margin-top: 24px;
+}
+
+body {
+  background: #dfe7fb;
+  color: #1c2333;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.brand {
+  background: #0b1f5c;
+  border-bottom: 5px solid #e8a91e;
+  border-radius: 18px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+}
+
+
+.brand-logo {
+  background: #ffffff;
+  border-radius:12px;
+  padding: 4px;
+}
+
+h2 {
+  color: #0b1f5c;
+  border-left: 5px solid #e8a91e;
+  padding-left: 10px;
+  margin-top: 28px;
+}
+
+input,
+select {
+  background: #ffffff;
+  border: 1px solid #c5cee6;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #e8a91e;
+  border-color: #e8a91e;
+}
+
+button {
+  background: #0b1f5c;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+button:active {
+  background: #12307f;
+}
+
+#invoice {
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(11, 31, 92, 0.15);
+  margin-top: 16px;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    max-width: none;
+    padding: 0;
+  }
+
+  #invoice {
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+.brand h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  font-size: 2.3rem;
+  color: #f2b632;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
