@@ -4,7 +4,7 @@ const historyList = document.getElementById("historyList");
 
 function getHistory() {
   try {
-    return JSON.parse(localStorage.getItem(historyKey)) || [];
+   return JSON.parse(localStorage.getItem(historyKey)) || [];
   } catch (error) {
     return [];
   }
